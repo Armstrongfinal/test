@@ -1,0 +1,12 @@
+@echo off
+set pcName=DESKTOP-5PP8JTV
+~~~~~~~~~~~~~~~~~(ºìÉ«)
+ping %pcName% -4
+@echo -
+for /f "tokens=2 delims=[" %%i in ('ping %pcName% -4^|findstr "%pcName%"') do set ip=%%i
+set iptmp=%ip:~0,14%
+set lastchar=%iptmp:~13,1%
+IF /I "%lastchar%"=="]" (set iptmp=%ip:~0,13%)
+@echo ==================ip:%iptmp%===============
+@echo -
+pause
